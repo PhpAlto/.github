@@ -7,6 +7,10 @@ on:
         type: string
         required: false
         default: '8.5'
+      php-extensions:
+        type: string
+        required: false
+        default: ''
       phpunit-args:
         type: string
         required: false
@@ -26,6 +30,7 @@ jobs:
         with:
           php-version: ${{ inputs.php-version }}
           coverage: pcov
+          extensions: ${{ inputs.php-extensions }}
           tools: composer
 
       - name: "Cache Composer dependencies"
